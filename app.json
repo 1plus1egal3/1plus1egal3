@@ -1,0 +1,57 @@
+{
+  "expo": {
+    "name": "1+1=3",
+    "slug": "1plus1egal3",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/images/icon.png",
+    "scheme": "unplusun",
+    "userInterfaceStyle": "dark",
+    "backgroundColor": "#0B0607",
+    "ios": {
+      "bundleIdentifier": "com.unplusunegaltrois.app",
+      "supportsTablet": false,
+      "infoPlist": {
+        "NSPhotoLibraryUsageDescription": "1+1=3 a besoin d'accéder à vos photos pour ajouter des souvenirs à votre histoire.",
+        "NSCameraUsageDescription": "1+1=3 a besoin de l'appareil photo pour capturer vos souvenirs."
+      }
+    },
+    "android": {
+      "package": "com.unplusunegaltrois.app",
+      "adaptiveIcon": {
+        "backgroundColor": "#0B0607",
+        "foregroundImage": "./assets/images/android-icon-foreground.png",
+        "backgroundImage": "./assets/images/android-icon-background.png",
+        "monochromeImage": "./assets/images/android-icon-monochrome.png"
+      },
+      "predictiveBackGestureEnabled": false
+    },
+    "web": {
+      "output": "single",
+      "favicon": "./assets/images/favicon.png"
+    },
+    "plugins": [
+      "expo-router",
+      "expo-font",
+      "expo-audio",
+      [
+        "expo-image-picker",
+        {
+          "photosPermission": "1+1=3 a besoin d'accéder à vos photos pour ajouter des souvenirs à votre histoire."
+        }
+      ],
+      [
+        "expo-splash-screen",
+        {
+          "backgroundColor": "#0B0607",
+          "image": "./assets/images/splash-icon.png",
+          "imageWidth": 200
+        }
+      ]
+    ],
+    "experiments": {
+      "typedRoutes": true,
+      "reactCompiler": true
+    }
+  }
+}
