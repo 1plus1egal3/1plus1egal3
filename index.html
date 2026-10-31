@@ -91,7 +91,8 @@ p { margin: 0; }
 .topbar .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
 .brand { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--champagne-l); font-family: var(--f-display); font-style: italic; font-size: 26px; }
 .brand img { width: 38px; height: 38px; }
-.topbar .ig { font-family: var(--f-caps); font-size: 11px; font-weight: 700; letter-spacing: .2em; color: var(--eyebrow); text-decoration: none; }
+/* Montserrat : dans Cinzel, le chiffre 1 se lit comme un I */
+.topbar .ig { font-family: var(--f-body); font-size: 12px; font-weight: 600; letter-spacing: .12em; color: var(--eyebrow); text-decoration: none; }
 
 /* ---------- Mouvement horloger ---------- */
 .mv { position: absolute; aspect-ratio: 1170 / 2096; }
@@ -146,7 +147,8 @@ p { margin: 0; }
   }
   .window .mv { width: 128%; left: 50%; top: 47%; transform: translate(-50%, -50%); }
   .window::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, transparent 70%, rgba(11,6,7,.7)); pointer-events: none; }
-  .window-cap { position: absolute; left: 0; right: 0; bottom: 20px; z-index: 2; text-align: center; font-family: var(--f-caps); font-size: 10.5px; letter-spacing: .3em; color: var(--eyebrow); }
+  /* Montserrat pour que « 1+1=3 » ne se lise pas « I+I=3 » */
+  .window-cap { position: absolute; left: 0; right: 0; bottom: 20px; z-index: 2; text-align: center; font-family: var(--f-body); font-weight: 600; font-size: 10.5px; letter-spacing: .26em; text-transform: uppercase; color: var(--eyebrow); }
 }
 
 /* ---------- Sections ---------- */
@@ -268,7 +270,8 @@ form { display: grid; gap: 18px; }
 .done h3 { font-size: clamp(30px, 5vw, 42px); }
 .done p { color: var(--soft); max-width: 30em; }
 .done .actions { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; }
-.count { font-family: var(--f-caps); font-size: 11px; letter-spacing: .22em; color: var(--eyebrow); text-align: center; }
+/* Montserrat : les chiffres restent lisibles */
+.count { font-family: var(--f-body); font-weight: 600; font-size: 12px; letter-spacing: .14em; text-transform: uppercase; color: var(--eyebrow); text-align: center; }
 
 /* Pied de page */
 footer { border-top: 1px solid var(--line); padding-block: 40px calc(40px + env(safe-area-inset-bottom, 0px)); }
@@ -288,15 +291,6 @@ footer a:hover { color: var(--champagne); }
 .sticky.show { transform: none; }
 @media (min-width: 920px) { .sticky { display: none; } }
 
-/* Pages légales */
-.legal { padding-block: 120px 80px; }
-.legal .wrap { max-width: 760px; display: grid; gap: 22px; }
-.legal h1 { font-size: clamp(40px, 6vw, 60px); color: var(--champagne-l); }
-.legal h2 { font-size: 28px; margin-top: 18px; }
-.legal p, .legal li { color: var(--soft); }
-.legal ul { margin: 0; padding-left: 20px; display: grid; gap: 6px; }
-.legal .todo { color: var(--ink); background: var(--champagne); padding: 0 6px; border-radius: 4px; font-weight: 600; }
-
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation: none !important; transition: none !important; }
   html { scroll-behavior: auto; }
@@ -304,11 +298,10 @@ footer a:hover { color: var(--champagne); }
 </style>
 </head>
 <body>
-<div id="vue-accueil">
   <header class="topbar">
     <div class="wrap">
       <a class="brand" href="#top" aria-label="1+1=3, retour en haut"><img src="img/logo.webp" alt="" width="38" height="38">1+1=3</a>
-      <a class="ig" href="https://www.instagram.com/1plus1egal.3/" target="_blank" rel="noopener">@1PLUS1EGAL.3</a>
+      <a class="ig" href="https://www.instagram.com/1plus1egal.3/" target="_blank" rel="noopener">@1plus1egal.3</a>
     </div>
   </header>
 
@@ -336,7 +329,7 @@ footer a:hover { color: var(--champagne); }
             <div class="dial" aria-hidden="true">
               <svg viewBox="0 0 38 38"><circle cx="19" cy="19" r="17" fill="none" stroke="rgba(226,194,155,.25)" stroke-width="1.5"/><circle id="reserve-arc" cx="19" cy="19" r="17" fill="none" stroke="#E2C29B" stroke-width="2" stroke-linecap="round" stroke-dasharray="106.8" stroke-dashoffset="40" transform="rotate(-90 19 19)"/><circle cx="19" cy="19" r="2.2" fill="#C9956F"/></svg>
             </div>
-            <div><div class="label">Réserve de marche<br>jusqu'à Noël</div><div class="days" id="days">58 jours</div></div>
+            <div><div class="label">Réserve de marche<br>jusqu'à Noël</div><div class="days" id="days">55 jours</div></div>
           </div>
         </div>
         <div class="window" aria-hidden="true">
@@ -493,7 +486,7 @@ footer a:hover { color: var(--champagne); }
                 <div class="field"><label for="email">E-mail</label><input id="email" name="email" type="email" autocomplete="email" inputmode="email" maxlength="160" placeholder="vous@exemple.fr" required></div>
               </div>
               <div class="hp" aria-hidden="true"><label for="site">Ne pas remplir</label><input id="site" name="site" type="text" tabindex="-1" autocomplete="off"></div>
-              <label class="consent" for="consent"><input id="consent" name="consent" type="checkbox" required><span>J'accepte de recevoir les e-mails de 1+1=3 sur l'ouverture de l'application. Je peux me désinscrire à tout moment. <a href="#confidentialite">Confidentialité</a></span></label>
+              <label class="consent" for="consent"><input id="consent" name="consent" type="checkbox" required><span>J'ai 18 ans ou plus et j'accepte de recevoir les e-mails de 1+1=3 sur l'ouverture de l'application. Je peux me désinscrire à tout moment. <a href="/confidentialite" target="_blank" rel="noopener">Confidentialité</a> · <a href="/conditions" target="_blank" rel="noopener">Conditions</a></span></label>
               <p class="form-msg" id="form-msg" role="alert"></p>
               <button class="btn" id="submit" type="submit">Participer à l'ouverture gratuite pour Noël</button>
               <p class="count" id="count" hidden></p>
@@ -519,71 +512,26 @@ footer a:hover { color: var(--champagne); }
     <div class="wrap">
       <small>© 2026 1+1=3</small>
       <nav aria-label="Informations légales">
-        <a href="#mentions-legales">Mentions légales</a>
-        <a href="#confidentialite">Confidentialité</a>
+        <a href="/mentions-legales">Mentions légales</a>
+        <a href="/confidentialite">Confidentialité</a>
+        <a href="/conditions">Conditions générales</a>
         <a href="https://www.instagram.com/1plus1egal.3/" target="_blank" rel="noopener">Instagram</a>
       </nav>
     </div>
   </footer>
 
   <div class="sticky" id="sticky"><a class="btn" href="#inscription">Participer à l'ouverture gratuite</a></div>
-</div>
-
-<!-- Mentions légales -->
-<div id="vue-mentions-legales" class="legal" hidden>
-  <div class="wrap">
-    <a class="brand" href="#top"><img src="img/logo.webp" alt="" width="38" height="38">1+1=3</a>
-    <h1>Mentions légales</h1>
-    <h2>Éditeur du site</h2>
-    <p>Le site 1plus1egal3.app est édité par <span class="todo">[raison sociale et forme juridique à compléter]</span>, <span class="todo">[adresse du siège]</span>, immatriculée sous le numéro <span class="todo">[SIREN / SIRET]</span>.</p>
-    <p>Directrice de la publication&#8239;: <span class="todo">[nom à compléter]</span>.</p>
-    <p>Contact&#8239;: 1plus1egal3@gmail.com</p>
-    <h2>Hébergement</h2>
-    <p>Site hébergé par Vercel Inc., 440 N Barranca Ave #4133, Covina, CA 91723, États-Unis (vercel.com).</p>
-    <p>Données de la liste d'attente hébergées par Supabase, sur des serveurs situés dans l'Union européenne.</p>
-    <h2>Propriété intellectuelle</h2>
-    <p>Le nom 1+1=3, le logo, les visuels et les textes de ce site sont protégés. Toute reproduction sans autorisation écrite est interdite.</p>
-    <p><a href="#top">Retour à l'accueil</a></p>
-  </div>
-</div>
-
-<!-- Confidentialité -->
-<div id="vue-confidentialite" class="legal" hidden>
-  <div class="wrap">
-    <a class="brand" href="#top"><img src="img/logo.webp" alt="" width="38" height="38">1+1=3</a>
-    <h1>Confidentialité</h1>
-    <p>Cette page explique ce que nous faisons des informations que vous laissez en vous inscrivant à la liste d'ouverture de 1+1=3.</p>
-    <h2>Ce que nous collectons</h2>
-    <ul>
-      <li>Votre prénom et votre adresse e-mail.</li>
-      <li>La date de votre inscription et de votre accord.</li>
-      <li>La provenance de la visite (par exemple Instagram), pour savoir quels contenus vous ont amené ici.</li>
-    </ul>
-    <h2>Pourquoi</h2>
-    <p>Uniquement pour vous prévenir de l'ouverture de l'application et vous envoyer votre accès. La base légale est votre consentement, donné en cochant la case du formulaire.</p>
-    <h2>Combien de temps</h2>
-    <p>Jusqu'à votre désinscription, et au plus tard trois ans après notre dernier contact.</p>
-    <h2>Qui y a accès</h2>
-    <p>L'équipe de 1+1=3 et nos prestataires techniques&#8239;: Supabase (stockage, Union européenne) et Resend (envoi des e-mails). Vos données ne sont ni vendues ni louées.</p>
-    <h2>Vos droits</h2>
-    <p>Vous pouvez demander à consulter, corriger ou supprimer vos données en écrivant à 1plus1egal3@gmail.com. Chaque e-mail contient aussi un lien de désinscription. Vous pouvez saisir la CNIL (cnil.fr) si vous estimez que vos droits ne sont pas respectés.</p>
-    <h2>Cookies</h2>
-    <p>Ce site ne dépose aucun cookie publicitaire ni de mesure d'audience.</p>
-    <p><a href="#top">Retour à l'accueil</a></p>
-  </div>
-</div>
 
 <script>
-/* ------------------------------------------------------------------
-   RÉGLAGE À FAIRE UNE SEULE FOIS :
-   colle ici l'adresse de ta fonction Supabase « inscription »,
-   par exemple : https://abcdefgh.supabase.co/functions/v1/inscription
-   Tant que c'est vide, le formulaire fonctionne en mode démonstration.
-------------------------------------------------------------------- */
+/* Adresse de la fonction Supabase « inscription » */
 const ENDPOINT = 'https://ucgfexnutctxebeoaval.supabase.co/functions/v1/inscription';
 
 (function () {
   const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* Anciens liens vers les pages légales intégrées */
+  const legacy = { '#mentions-legales': '/mentions-legales', '#confidentialite': '/confidentialite' };
+  if (legacy[location.hash]) location.replace(legacy[location.hash]);
 
   /* Réserve de marche jusqu'à Noël */
   const now = new Date();
@@ -635,18 +583,6 @@ const ENDPOINT = 'https://ucgfexnutctxebeoaval.supabase.co/functions/v1/inscript
     sticky.classList.toggle('show', past && !atForm);
   };
   window.addEventListener('scroll', onScroll, { passive: true });
-
-  /* Pages légales (#mentions-legales, #confidentialite) */
-  const views = { 'mentions-legales': 'vue-mentions-legales', 'confidentialite': 'vue-confidentialite' };
-  const route = () => {
-    const h = location.hash.replace('#', '');
-    const legal = views[h];
-    document.getElementById('vue-accueil').hidden = !!legal;
-    for (const k in views) document.getElementById(views[k]).hidden = views[k] !== legal;
-    if (legal) window.scrollTo(0, 0);
-  };
-  window.addEventListener('hashchange', route);
-  route();
 
   /* Provenance (liens avec ?utm_source=instagram&utm_campaign=bio) */
   const qs = new URLSearchParams(location.search);

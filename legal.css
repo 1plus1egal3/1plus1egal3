@@ -1,0 +1,60 @@
+/* Pages légales 1+1=3 : même écrin que la page d'ouverture, en version lecture. */
+:root {
+  --ink: #0B0607;
+  --ink-2: #140A0C;
+  --wine: #3A0B13;
+  --champagne: #E2C29B;
+  --champagne-l: #F1D8BC;
+  --rose: #C9956F;
+  --eyebrow: #D9B38F;
+  --text: #F4ECE2;
+  --soft: #CDBBAB;
+  --muted: #A89788;
+  --line: rgba(217,179,143,.24);
+  --f-display: "Cormorant Garamond", "Cormorant", Garamond, "Times New Roman", serif;
+  --f-caps: "Cinzel", "Trajan Pro", "Times New Roman", serif;
+  --f-body: "Montserrat", "Helvetica Neue", Arial, sans-serif;
+  color-scheme: dark;
+}
+*, *::before, *::after { box-sizing: border-box; }
+html { background: var(--ink); }
+body {
+  margin: 0; background: var(--ink); color: var(--text);
+  font-family: var(--f-body); font-size: 16px; line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+a { color: var(--champagne); }
+a:hover { color: var(--champagne-l); }
+:focus-visible { outline: 2px solid var(--champagne-l); outline-offset: 3px; border-radius: 4px; }
+
+.wrap {
+  width: 100%; max-width: 780px; margin: 0 auto;
+  padding-left: max(20px, env(safe-area-inset-left, 0px));
+  padding-right: max(20px, env(safe-area-inset-right, 0px));
+}
+header { border-bottom: 1px solid var(--line); padding-block: 18px; }
+header .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+.brand { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--champagne-l); font-family: var(--f-display); font-style: italic; font-size: 26px; }
+.brand img { width: 38px; height: 38px; }
+.back { font-size: 13px; color: var(--muted); text-decoration: none; }
+
+main { padding-block: 64px 80px; }
+main .wrap { display: grid; gap: 18px; }
+.eyebrow { font-family: var(--f-caps); font-weight: 700; font-size: 12px; letter-spacing: .32em; text-transform: uppercase; color: var(--eyebrow); }
+h1, h2 { font-family: var(--f-display); font-style: italic; font-weight: 500; margin: 0; line-height: 1.1; text-wrap: balance; }
+h1 { font-size: clamp(40px, 7vw, 60px); color: var(--champagne-l); margin-bottom: 6px; }
+h2 { font-size: 28px; color: var(--champagne-l); margin-top: 26px; padding-top: 22px; border-top: 1px solid var(--line); }
+p, li { color: var(--soft); margin: 0; }
+ul { margin: 0; padding-left: 20px; display: grid; gap: 6px; }
+strong { color: var(--text); font-weight: 600; }
+.updated { font-size: 13px; color: var(--muted); }
+.card { border: 1px solid var(--line); border-radius: 18px; padding: 20px 22px; background: var(--ink-2); display: grid; gap: 6px; }
+.table-wrap { overflow-x: auto; }
+table { border-collapse: collapse; width: 100%; font-size: 14.5px; }
+th, td { text-align: left; vertical-align: top; padding: 10px 12px; border-bottom: 1px solid var(--line); color: var(--soft); }
+th { font-family: var(--f-caps); font-size: 11px; letter-spacing: .18em; color: var(--eyebrow); font-weight: 700; }
+
+footer { border-top: 1px solid var(--line); padding-block: 32px calc(32px + env(safe-area-inset-bottom, 0px)); }
+footer .wrap { display: flex; flex-wrap: wrap; gap: 10px 22px; justify-content: space-between; }
+footer a, footer small { font-size: 13px; color: var(--muted); text-decoration: none; }
+footer nav { display: flex; flex-wrap: wrap; gap: 10px 22px; }
